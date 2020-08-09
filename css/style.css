@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+@media (max-width: 768px) {
+  .main-div {
+    position: relative !important;
+  }
+  .title {
+    display: block !important;
+    margin-left: auto !important;
+  }
+
+  .name-of-app {
+    text-align: center;
+    margin-bottom: 1rem !important;
+  }
+
+  .form-control {
+    display: unset;
+    margin-left: 3rem !important;
+    margin-right: auto;
+  }
+  .add-task-btn {
+    position: absolute !important;
+    right: 0 !important;
+  }
+  .profile-div {
+    margin-top: 2rem;
+    height: 50vh !important;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+
+  /* Font parametres */
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  margin-left: 3rem;
+  padding-bottom: 2.8rem;
+  border-bottom: 2px solid #f9f9fb;
+}
+
+.main-div {
+  height: 100vh;
+  padding-top: 3.5rem;
+  overflow: scroll;
+}
+
+.task-line-div {
+  padding-top: 2rem;
+  margin-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+.weather-div .time-cls {
+  font-size: 2.7rem !important;
+}
+
+span {
+  color: #81838f;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.name-of-app {
+  margin: auto;
+}
+
+.name-of-task {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.type-of-button {
+  border-radius: 15px;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ece7fe;
+  color: #927bf0;
+  font-size: 0.8rem;
+}
+
+.type-of-button:hover {
+  border: 0;
+  background-color: #ece7fe;
+  color: #8f74e3;
+}
+
+.type-of-button:focus {
+  box-shadow: none;
+  background-color: #ece7fe;
+  color: #8f74e3;
+}
+
+.done-btn {
+  border-radius: 15px;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #e1faf4;
+  color: #8fd8c7;
+  font-size: 0.8rem;
+}
+
+.done-btn:hover {
+  background-color: #e1faf4;
+  color: #8fd8c7;
+  -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+}
+
+.form-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  width: 200px !important;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: 1.5rem;
+  border: 1px solid #623ce7;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #623ce7;
+}
+
+::placeholder {
+  color: gray !important;
+}
+
+.add-task-btn {
+  margin-right: 2.5rem;
+  min-height: 45px;
+  min-width: 45px;
+
+  border: 0;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  color: #fff;
+  background-color: #623ce7;
+}
+
+.add-task-btn:hover {
+  background-color: #623ce7;
+  -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+}
+
+.add-task-btn:focus {
+  color: #fff;
+  background-color: #623ce7;
+  box-shadow: none;
+}
+
+.weather-div {
+  position: relative;
+  margin-top: 2.5rem;
+  height: 300px;
+  border-radius: 15px;
+  background-color: #d2e6ff;
+}
+
+.useful-info-cls {
+  margin-top: 3rem;
+  color: #56565c;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+}
+
+.weather-div .time-cls {
+  padding-top: 1.8rem;
+  padding-bottom: 0.8rem;
+  line-height: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+}
+
+.degree-cls {
+  font-family: "Montserrat", sans-serif !important;
+  color: #fff;
+  font-size: 2.5rem !important;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 2rem !important;
+}
+
+.weather-form-cls {
+  font-family: "Poppins", sans-serif !important;
+  color: #fff;
+  font-size: 1rem !important;
+  position: absolute;
+  margin-bottom: 0.9rem;
+  bottom: 0;
+}
+
+.fa-sun,
+.fa-cloud-rain,
+.fa-cloud {
+  position: absolute;
+  bottom: 0;
+  color: #697f8d;
+  font-size: 3rem;
+  margin-bottom: 6.1rem;
+  margin-left: 0.3rem;
+}
+
+.weather-div p {
+  margin-top: -0.5rem;
+  margin-left: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  color: #7b90a1;
+  font-size: 1rem;
+}
+
+.quote-div {
+  position: relative;
+  margin-top: 2.5rem;
+  min-height: 170px;
+  border-radius: 15px;
+  background-color: #d2e6ff;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+
+/* Profile Section Starts */
+
+.profile-div {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-div img {
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+
+  margin-top: 3rem;
+}
+
+.user-name-info {
+  position: absolute;
+  top: 0;
+  margin-top: 12rem;
+  font-size: 1rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+}
+
+.user-mail-info {
+  position: absolute;
+  top: 0;
+  margin-top: 13.8rem;
+  font-size: 0.8rem;
+  color: #7b90a1;
+  font-family: "Poppins", sans-serif;
+}
+
+.advice-title-div-span {
+  position: absolute;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.advice-div-span {
+  position: absolute;
+  margin-top: 3.8rem;
+  font-size: 0.88rem;
+  font-family: "Poppins", sans-serif;
+  margin-right: 1.5rem;
+}
+
+/* Done */
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.5s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill 0.3s ease-in-out 0.3s forwards,
+    scale 0.2s ease-in-out 0.8s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.2s cubic-bezier(0.65, 0, 0.45, 1) 0.7s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}
+
+.checked-div {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh !important;
+}

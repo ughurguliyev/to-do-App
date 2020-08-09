@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO App</title>
+    <script
+      src="https://kit.fontawesome.com/baccb61320.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <section id="main-section">
+      <div class="container-fluid">
+        <div class="row">
+          <div
+            class="col-md-2 order-2 profile-div"
+            style="height: 100vh; background-color: #f7f8fc;"
+          >
+            <img src="images/user.png" />
+            <span class="user-name-info"> Name Surname </span>
+            <span class="user-mail-info"> user.mail@gmail.com </span>
+          </div>
+          <div class="col-md-7 main-div order-1">
+            <div class="title">
+              <p class="name-of-app">TO-DO App</p>
+
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                placeholder="Enter the task"
+                onfocus="this.value=''"
+              />
+              <button class="btn btn-primary add-task-btn">+</button>
+            </div>
+          </div>
+
+          <div
+            class="col-md-3 order-3"
+            style="height: 100vh; background-color: #f7f8fc;"
+          >
+            <div class="row">
+              <div class="col-md-11">
+                <p class="useful-info-cls">Useful Informations</p>
+                <div class="container weather-div"></div>
+                <div class="container quote-div">
+                  <span class="advice-title-div-span">Latest SpaceX Info</span>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="checked-div">
+      <svg
+        class="checkmark"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 52 52"
+      >
+        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+        <path
+          class="checkmark__check"
+          fill="none"
+          d="M14.1 27.2l7.1 7.2 16.7-16.8"
+        />
+      </svg>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
