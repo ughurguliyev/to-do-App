@@ -1,6 +1,6 @@
 // Getting Weather Degree starts using API and functions
 
-let url = "http://api.openweathermap.org/data/2.5/weather?";
+let url = "https://api.openweathermap.org/data/2.5/weather?";
 let apiKey = "66661ce8b7e3d9b44e11e712ae164816";
 
 let completeUrl = `${url}q=Baku&appid=${apiKey}`;
