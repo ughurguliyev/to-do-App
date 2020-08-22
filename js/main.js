@@ -1,3 +1,5 @@
+// First User Info
+
 // Getting Weather Degree starts using API and functions
 
 let url = "https://api.openweathermap.org/data/2.5/weather?";
@@ -13,7 +15,6 @@ function getDegree(data) {
   for (let value in data) {
     if (value === "main") {
       localStorage.setItem("weatherdegree", data["main"]["feels_like"]);
-      return data["main"]["feels_like"];
     }
   }
 }
@@ -66,15 +67,20 @@ $(document).ready(() => {
     }
   }
 
-  let advice = localStorage.getItem("advice");
+  // Getting Date Info codes start
 
   let d = new Date();
   let dayOfWeek = d.getDay();
-  let dayOfWeekWord = new String();
   let day = d.getDate();
   let month = d.getMonth() + 1;
-  let monthByName = new String();
+
   let year = d.getFullYear();
+
+  // Getting Date Info codes end
+
+  let detailSpaceX = localStorage.getItem("detail");
+
+  // Weather icon details
 
   let sunIcon = "fa-sun";
   let rainIcon = "fa-cloud-rain";
@@ -84,13 +90,9 @@ $(document).ready(() => {
 
   let icon = new String();
 
-  console.log(dayOfWeek);
-
   let weatherDegree = Math.round(localStorage.getItem("weatherdegree")) - 272;
 
-  console.log(weatherDegree);
-
-  if (weatherDegree > 25) {
+  if (weatherDegree >= 25) {
     icon = sunIcon;
   } else if (weatherDegree < 25 && weatherDegree > 15) {
     icon = cloudIcon;
@@ -98,69 +100,69 @@ $(document).ready(() => {
 
   switch (dayOfWeek) {
     case 1:
-      dayOfWeekWord = "Bazar Ertəsi";
+      dayOfWeek = "Bazar Ertəsi";
       break;
     case 2:
-      dayOfWeekWord = "Çərşənbə Axşamı";
+      dayOfWeek = "Çərşənbə Axşamı";
       break;
     case 3:
-      dayOfWeekWord = "Çərşənbə";
+      dayOfWeek = "Çərşənbə";
       break;
     case 4:
-      dayOfWeekWord = "Cümə Axşamı";
+      dayOfWeek = "Cümə Axşamı";
       break;
     case 5:
-      dayOfWeekWord = "Cümə";
+      dayOfWeek = "Cümə";
       break;
     case 6:
-      dayOfWeekWord = "Şənbə";
+      dayOfWeek = "Şənbə";
       break;
     case 0:
-      dayOfWeekWord = "Bazar";
+      dayOfWeek = "Bazar";
       break;
   }
 
   switch (month) {
     case 1:
-      monthByName = "January";
+      month = "January";
       break;
     case 2:
-      monthByName = "Fevral";
+      month = "Fevral";
       break;
     case 3:
-      monthByName = "Mart";
+      month = "Mart";
       break;
     case 4:
-      monthByName = "Aprel";
+      month = "Aprel";
       break;
     case 5:
-      monthByName = "May";
+      month = "May";
       break;
     case 6:
-      monthByName = "Iyun";
+      month = "Iyun";
       break;
     case 7:
-      monthByName = "Iyul";
+      month = "Iyul";
       break;
     case 8:
-      monthByName = "Avqust";
+      month = "Avqust";
       break;
     case 9:
-      monthByName = "Sentyabr";
+      month = "Sentyabr";
       break;
     case 10:
-      monthByName = "Oktyabr";
+      month = "Oktyabr";
       break;
     case 11:
-      monthByName = "Noyabr";
+      month = "Noyabr";
       break;
     case 12:
-      monthByName = "Dekabr";
+      month = "Dekabr";
       break;
   }
 
-  weatherDiv.append(`<p class="time-cls">${dayOfWeekWord}</p>
-  <p>${day} ${monthByName} ${year}</p>
+  weatherDiv.append(`<p class="time-cls">${dayOfWeek}</p>
+  <p>${day} ${month} ${year}</p>
   <i class="fas ${icon}"></i>
   <p class="degree-cls">${weatherDegree}°C</p>
   <p class="weather-form-cls">Əsasən aydın</p>`);
@@ -223,5 +225,40 @@ $(document).ready(() => {
     }, 3400);
   });
 
-  $(".quote-div").append(`<span class="advice-div-span">${advice}</span>`);
+  $(".quote-div").append(
+    `<span class="advice-div-span">${detailSpaceX}</span>`
+  );
+
+  let userName = localStorage.getItem("userName");
+  let userEmail = localStorage.getItem("userEmail");
+  let userNumber = localStorage.getItem("userNumber");
+
+  if (userName) {
+    $(".user-name-info").text(userName);
+  } else {
+    $(".user-name-info").text("Name Surname");
+  }
+
+  /*
+
+  if (localStorage.getItem("userName")) {
+    $(".user-name-info").text(localStorage.getItem("userName"));
+    console.log("YEs");
+  } else {
+  }
+  $(".user-setting").on("click", () => {
+    $("#main-section").slideUp(700, () => {
+      $(".changeProfileSettingsDiv").slideDown(700, () => {
+        $(".changeProfileSettingsDiv").css("display", "flex");
+      });
+      $("#submitChanges").on("click", () => {
+        let newUserNameInput = $("#gettinUserName").val();
+        localStorage.setItem("userName", newUserNameInput);
+        $("#main-section").slideDown(600, () => {
+          location.reload();
+        });
+      });
+    });
+  });
+  */
 });

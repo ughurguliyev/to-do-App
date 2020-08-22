@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/setting-style.css" />
+    <link rel="stylesheet" href="css/upload-img-mobile.css" />
+    <link rel="stylesheet" href="css/upload-img.css" />
+    
+    <title>Profile Setting</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="img-div">
+          <img class="user-img" src="images/user.png" />
+        </div>
+        <div class="row my-profile">
+          <div class="col-5">
+            <p class="profile-text">Mənim profilim</p>
+          </div>
+          <div id="last-login-id" class="col-7">
+            <p class="last-login-info">
+            </p>
+          </div>
+        </div>
+        <div class="row name-number-input">
+          <div class="col-6">
+            <form>
+              <input
+              id = "userName"
+                type="text"
+                class="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                placeholder="Ad & Soyad"
+                
+              />
+            </form>
+          </div>
+          <div class="col-6">
+            <form>
+              <input
+              id = "userNumber"
+                type="number"
+                class="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                placeholder="Nömrə"
+
+              />
+            </form>
+            </div>
+      </div>
+      <div class="row mail-input">
+        <div class="col-12">
+          <form>
+            <input
+            id = "userEmail"
+              type="email"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              placeholder="E-Mail adresi"
+
+            />
+          </form>
+        </div>
+      </div>
+      <div class="change-profile-photo-div">
+        <button class="btn btn-primary change-profile-photo-btn">Change profile picture</button>
+      </div>
+      <div class="save-div">
+        <button class="btn btn-primary save-btn">Yadda Saxla</button>
+      </div>
+      <div class="dropzone">
+        <div class="info"></div>
+      </div>
+    
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="./js/imgur.js"></script>
+    <script type="text/javascript" src="./js/upload.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>

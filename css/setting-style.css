@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+body {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+}
+
+.container {
+  margin-top: 5rem;
+  height: 33rem;
+  max-width: 24rem;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.img-div {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-text {
+  margin-left: 0.3rem;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+}
+
+.last-login-info {
+  padding: 0.5rem 0 0 2rem;
+  color: #c8c8c8;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+}
+
+.user-img {
+  max-width: 150px;
+  max-height: 150px;
+  margin-top: 1rem;
+
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.row {
+  padding: 1.5rem;
+}
+
+.mail-input {
+  margin-top: -1.5rem;
+}
+
+.name-number-input {
+  margin-top: -2rem;
+}
+
+.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px #f8f8f8 solid;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+}
+
+.form-control:focus {
+  border-bottom: 2px #ebebeb solid;
+  box-shadow: none;
+  color: #888888;
+}
+
+.form-control::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+}
+
+.change-profile-photo-div {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.change-profile-photo-btn {
+  border: 0;
+  background-image: linear-gradient(90deg, #e94468 0%, #ef893f 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.save-div {
+  margin-top: 1.3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.save-btn {
+  border-radius: 20px;
+  border: 0;
+  width: 150px;
+  height: 43px;
+  background: linear-gradient(-90deg, #e94468 0%, #ef893f 100%);
+}
+
+.btn:focus {
+  box-shadow: none;
+}

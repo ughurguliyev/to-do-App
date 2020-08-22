@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
+@media (max-width: 330px) {
+  #main-section .form-control {
+    width: 160px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .main-div {
     position: relative !important;
@@ -15,7 +21,7 @@
     margin-bottom: 1rem !important;
   }
 
-  .form-control {
+  #main-section .form-control {
     display: unset;
     margin-left: 3rem !important;
     margin-right: auto;
@@ -26,7 +32,13 @@
   }
   .profile-div {
     margin-top: 2rem;
-    height: 50vh !important;
+    height: 60vh !important;
+  }
+  .profile-div .btn {
+    margin-top: 17rem;
+  }
+  .useful-info-cls {
+    text-align: center;
   }
 }
 
@@ -58,7 +70,7 @@
   font-size: 2.7rem !important;
 }
 
-span {
+#main-div span {
   color: #81838f;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -124,15 +136,15 @@ span {
   align-items: center;
 }
 
-.form-control {
-  width: 200px !important;
+#main-section .form-control {
+  width: 200px;
   border-radius: 15px;
   margin-left: auto;
   margin-right: 1.5rem;
   border: 1px solid #623ce7;
 }
 
-.form-control:focus {
+#main-section .form-control:focus {
   box-shadow: none;
   border: 1px solid #623ce7;
 }
@@ -182,9 +194,9 @@ span {
 }
 
 .weather-div .time-cls {
-  padding-top: 1.8rem;
+  padding-top: 1rem;
   padding-bottom: 0.8rem;
-  line-height: 2.2rem;
+  line-height: 3rem;
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
 }
@@ -214,7 +226,7 @@ span {
   bottom: 0;
   color: #697f8d;
   font-size: 3rem;
-  margin-bottom: 6.1rem;
+  margin-bottom: 5.5rem;
   margin-left: 0.3rem;
 }
 
@@ -290,7 +302,45 @@ span {
   margin-right: 1.5rem;
 }
 
-/* Done */
+.profile-div .btn {
+  top: 0;
+  margin-top: 18rem;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: #623ce7;
+  border: 0;
+}
+
+.profile-div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.profile-div a:hover {
+  color: #fff;
+}
+
+#main-div i {
+  color: white;
+}
+
+.profile-div .btn:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.profile-div .btn:active {
+  box-shadow: none;
+  border: 0;
+  background-color: #512cd4;
+}
+
+/* Done Checkmark Animation Design starts */
+
 .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
@@ -349,3 +399,11 @@ span {
   text-align: center;
   height: 100vh !important;
 }
+
+.user-img {
+  position: relative;
+}
+
+/* Done Checkmark Animation Design ends */
+
+/* Profile Setting Style codes start */
