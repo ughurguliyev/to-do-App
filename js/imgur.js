@@ -20,7 +20,7 @@
     }
 
     if (!options.clientid) {
-      throw "Provide a valid Client Id here: https://api.imgur.com/";
+      throw "https://api.imgur.com/8dc92fe93087062";
     }
 
     this.clientid = options.clientid;
@@ -75,8 +75,6 @@
     createDragZone: function () {
       var p1, p2, input;
 
-      p1 = this.createEls("p", {}, "Drop Image File Here");
-      p2 = this.createEls("p", {}, "Or click here to select image");
       input = this.createEls("input", {
         type: "file",
         className: "input",

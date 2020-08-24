@@ -47,20 +47,59 @@ $(document).ready(() => {
   let mainDiv = $(".main-div");
   let weatherDiv = $(".weather-div");
 
+  function done() {
+    let localArr = [];
+    let tagsLocalArr = [];
+    let storedObj = JSON.parse(localStorage.getItem("todos"));
+
+    let i = 0;
+
+    const taskData = $(event.currentTarget).parent().find("span").text();
+
+    for (let task in storedObj["datas"]) {
+      if (taskData !== storedObj["datas"][task]) {
+        localArr.push(storedObj["datas"][task]);
+        tagsLocalArr.push(storedObj["tags"][i]);
+        i++;
+      } else {
+        i++;
+      }
+    }
+
+    storedObj["datas"] = localArr;
+    storedObj["tags"] = tagsLocalArr;
+
+    localStorage.setItem("todos", JSON.stringify(storedObj));
+  }
+
+  function doneAnimation() {
+    $("#main-section").slideUp(700, () => {
+      $(".checked-div").css("display", "flex");
+    });
+    setTimeout(function () {
+      $("#main-section").slideDown(700, function () {
+        $(".checked-div").css("display", "none");
+      });
+    }, 2500);
+    setTimeout(function () {
+      location.reload();
+    }, 3400);
+  }
+
   if (storedObj) {
     const newObj = JSON.parse(storedObj);
 
-    for (let task in newObj["datas"]) {
+    for (let i = 0; i < newObj["datas"].length; i++) {
       let todo = `
       <div class="row task-line-div">
       <div class="col-md-8 name-of-task">
         <button class="btn btn-primary done-btn">Done</button>
         <span style="margin-left: 0.9rem;"
-          >${newObj["datas"][task]}</span
+          >${newObj["datas"][i]}</span
         >
       </div>
-      <div class="col-md-4 button">
-        <button class="btn btn-primary type-of-button">Approved</button>
+      <div class="col-md-4 tag-button-div">
+        <button  class="btn btn-primary type-of-button">${newObj["tags"][i]}</button>
       </div>
     </div>`;
       $(todo).appendTo(mainDiv);
@@ -87,6 +126,18 @@ $(document).ready(() => {
   let cloudIcon = "fa-cloud";
 
   // Finding Weather Degree
+
+  let userImgDiv = $(".profile-div");
+
+  let img;
+
+  if (localStorage.getItem("userImage")) {
+    img = `<img src="${localStorage.getItem("userImage")}" />`;
+  } else {
+    img = `<img src="images/user.png">`;
+  }
+
+  userImgDiv.append(img);
 
   let icon = new String();
 
@@ -168,17 +219,21 @@ $(document).ready(() => {
   <p class="weather-form-cls">Əsasən aydın</p>`);
 
   addBtn.on("click", () => {
-    let value = $(".form-control").val();
+    let value = $(".task-input").val();
+    let tagInput = $(".tag-input").val();
 
     let todoObj = {
       datas: [],
+      tags: [],
     };
     if (storedObj) {
       const newObj = JSON.parse(storedObj);
       newObj["datas"].push(value);
+      newObj["tags"].push(tagInput);
       localStorage.setItem("todos", JSON.stringify(newObj));
     } else {
       todoObj["datas"].push(value);
+      todoObj["tags"].push(tagInput);
       localStorage.setItem("todos", JSON.stringify(todoObj));
     }
 
@@ -190,7 +245,7 @@ $(document).ready(() => {
       >
     </div>
     <div class="col-md-4 button">
-      <button class="btn btn-primary type-of-button">Approved</button>
+      <button  class="btn btn-primary type-of-button">${tagInput}</button>
     </div>
   </div>`;
 
@@ -200,29 +255,45 @@ $(document).ready(() => {
     location.reload();
   });
 
-  $(".done-btn").on("click", () => {
-    let localArr = [];
-    let storedObj = JSON.parse(localStorage.getItem("todos"));
-    const data = $(event.currentTarget).parent().find("span").text();
-    for (let task in storedObj["datas"]) {
-      if (data !== storedObj["datas"][task]) {
-        localArr.push(storedObj["datas"][task]);
-      }
-    }
-    storedObj["datas"] = localArr;
-    localStorage.setItem("todos", JSON.stringify(storedObj));
+  $(".type-of-button").on("click", () => {
+    let buttonName = $(event.currentTarget).text();
+    let i = 0;
 
-    $("#main-section").slideUp(700, () => {
-      $(".checked-div").css("display", "flex");
+    $(".task-line-div").remove();
+
+    console.log(buttonName);
+
+    let storedTagArr = JSON.parse(storedObj)["tags"];
+    let storedToDoArr = JSON.parse(storedObj)["datas"];
+
+    for (tags in storedTagArr) {
+      if (buttonName === storedTagArr[tags]) {
+        let tagList = `
+      <div class="row task-line-div">
+      <div class="col-md-8 name-of-task">
+        <button class="btn btn-primary done-btn">Done</button>
+        <span style="margin-left: 0.9rem;"
+          >${storedToDoArr[i]}</span
+        >
+      </div>
+      <div class="col-md-4 button">
+        <button class="btn btn-primary type-of-button" style="float: right; right: 4rem">${storedTagArr[tags]}</button>
+      </div>
+  </div>
+      `;
+        $(tagList).appendTo(mainDiv);
+      }
+      i++;
+    }
+    $(".done-btn").on("click", () => {
+      done();
+      doneAnimation();
     });
-    setTimeout(function () {
-      $("#main-section").slideDown(700, function () {
-        $(".checked-div").css("display", "none");
-      });
-    }, 2500);
-    setTimeout(function () {
-      location.reload();
-    }, 3400);
+  });
+
+  $(".done-btn").on("click", () => {
+    done();
+    doneAnimation();
   });
 
   $(".quote-div").append(
@@ -238,27 +309,14 @@ $(document).ready(() => {
   } else {
     $(".user-name-info").text("Name Surname");
   }
-
-  /*
-
-  if (localStorage.getItem("userName")) {
-    $(".user-name-info").text(localStorage.getItem("userName"));
-    console.log("YEs");
+  if (userEmail) {
+    $(".user-mail-info").text(userEmail);
   } else {
+    $(".user-mail-info").text("user@mail.com");
   }
-  $(".user-setting").on("click", () => {
-    $("#main-section").slideUp(700, () => {
-      $(".changeProfileSettingsDiv").slideDown(700, () => {
-        $(".changeProfileSettingsDiv").css("display", "flex");
-      });
-      $("#submitChanges").on("click", () => {
-        let newUserNameInput = $("#gettinUserName").val();
-        localStorage.setItem("userName", newUserNameInput);
-        $("#main-section").slideDown(600, () => {
-          location.reload();
-        });
-      });
-    });
-  });
-  */
+  if (userNumber) {
+    $(".user-number-info").text(userNumber);
+  } else {
+    $(".user-number-info").text("User Number");
+  }
 });

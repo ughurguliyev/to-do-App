@@ -85,7 +85,7 @@
   align-items: center;
 }
 
-.button {
+.tag-button-div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,6 +93,7 @@
 }
 
 .type-of-button {
+  position: absolute;
   border-radius: 15px;
   border: 0;
   font-family: "Poppins", sans-serif;
@@ -147,6 +148,14 @@
 #main-section .form-control:focus {
   box-shadow: none;
   border: 1px solid #623ce7;
+}
+
+#main-section .tag-input {
+  width: 90px;
+}
+
+#main-section .task-input {
+  margin-right: -1.5rem;
 }
 
 ::placeholder {
@@ -231,7 +240,7 @@
 }
 
 .weather-div p {
-  margin-top: -0.5rem;
+  margin-top: -1.5rem;
   margin-left: 0.7rem;
   font-family: "Poppins", sans-serif;
   color: #7b90a1;
@@ -271,8 +280,7 @@
 
 .user-name-info {
   position: absolute;
-  top: 0;
-  margin-top: 12rem;
+  top: 12rem;
   font-size: 1rem;
   color: #000;
   font-family: "Montserrat", sans-serif;
@@ -280,14 +288,22 @@
 
 .user-mail-info {
   position: absolute;
-  top: 0;
-  margin-top: 13.8rem;
+  top: 13.8rem;
+  font-size: 0.8rem;
+  color: #7b90a1;
+  font-family: "Poppins", sans-serif;
+}
+
+.user-number-info {
+  position: absolute;
+  top: 15.3rem;
   font-size: 0.8rem;
   color: #7b90a1;
   font-family: "Poppins", sans-serif;
 }
 
 .advice-title-div-span {
+  color: grey;
   position: absolute;
   margin-top: 1rem;
   font-size: 1.5rem;
@@ -295,6 +311,7 @@
 }
 
 .advice-div-span {
+  color: grey;
   position: absolute;
   margin-top: 3.8rem;
   font-size: 0.88rem;

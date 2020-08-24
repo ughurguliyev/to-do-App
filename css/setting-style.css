@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
+@media (max-width: 820px) {
+  .all-component-section {
+    padding: 0.8rem;
+  }
+}
+
 body {
   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
@@ -16,6 +22,7 @@ body {
 .img-div {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .profile-text {
@@ -76,7 +83,6 @@ body {
 
 .change-profile-photo-div {
   margin-top: 0.5rem;
-  display: flex;
   justify-content: center;
 }
 
@@ -97,19 +103,56 @@ body {
 }
 
 .save-div {
-  margin-top: 1.3rem;
+  margin-top: 1.2rem;
   display: flex;
   justify-content: center;
 }
 
 .save-btn {
   border-radius: 20px;
+  margin-top: -2.5rem;
   border: 0;
   width: 150px;
   height: 43px;
   background: linear-gradient(-90deg, #e94468 0%, #ef893f 100%);
 }
 
+.save-btn a {
+  color: #fff !important;
+}
+
 .btn:focus {
   box-shadow: none;
+}
+
+.close-btn {
+  position: absolute;
+  color: black;
+  right: 0.5rem;
+  top: 1rem;
+  float: right;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+
+  background-color: transparent;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.close-btn:hover {
+  background-color: transparent;
+  color: #000;
+}
+
+.close-btn:focus {
+  background-color: transparent;
+  color: #000;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #000;
+  border: 0;
+  background-color: transparent;
 }

@@ -12,77 +12,73 @@
     <link rel="stylesheet" href="css/setting-style.css" />
     <link rel="stylesheet" href="css/upload-img-mobile.css" />
     <link rel="stylesheet" href="css/upload-img.css" />
-    
+
     <title>Profile Setting</title>
   </head>
   <body>
-    <section>
+    <section class="all-component-section">
       <div class="container">
         <div class="img-div">
-          <img class="user-img" src="images/user.png" />
+          
+          <a href="https://ughurguliyev.github.io/to-do-App/main-page.html" class="btn btn-primary close-btn">x</a>
         </div>
         <div class="row my-profile">
           <div class="col-5">
             <p class="profile-text">Mənim profilim</p>
           </div>
           <div id="last-login-id" class="col-7">
-            <p class="last-login-info">
-            </p>
+            <p class="last-login-info"></p>
           </div>
         </div>
         <div class="row name-number-input">
           <div class="col-6">
             <form>
               <input
-              id = "userName"
+                id="userName"
                 type="text"
                 class="form-control"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
                 placeholder="Ad & Soyad"
-                
               />
             </form>
           </div>
           <div class="col-6">
             <form>
               <input
-              id = "userNumber"
+                id="userNumber"
                 type="number"
                 class="form-control"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
                 placeholder="Nömrə"
-
               />
             </form>
-            </div>
-      </div>
-      <div class="row mail-input">
-        <div class="col-12">
-          <form>
-            <input
-            id = "userEmail"
-              type="email"
-              class="form-control"
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
-              placeholder="E-Mail adresi"
-
-            />
-          </form>
+          </div>
+          
+        </div>
+        <div class="row mail-input">
+          <div class="col-12">
+            <form>
+              <input
+                id="userEmail"
+                type="email"
+                class="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                placeholder="E-Mail adresi"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="change-profile-photo-div">
+          <div class="dropzone">
+            <p>Change Profile Picture</p>
+        </div>
+        <div class="save-div">
+          <a href="https://ughurguliyev.github.io/to-do-App/main-page.html" class="btn btn-primary save-btn">Yadda Saxla</a>
         </div>
       </div>
-      <div class="change-profile-photo-div">
-        <button class="btn btn-primary change-profile-photo-btn">Change profile picture</button>
-      </div>
-      <div class="save-div">
-        <button class="btn btn-primary save-btn">Yadda Saxla</button>
-      </div>
-      <div class="dropzone">
-        <div class="info"></div>
-      </div>
-    
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -98,7 +94,7 @@
     ></script>
 
     <script type="text/javascript" src="./js/imgur.js"></script>
-    <script type="text/javascript" src="./js/upload.js"></script>
+    <script type="text/javascript" src="./js/upload.js"></script> 
     <script src="js/settings.js"></script>
   </body>
 </html>

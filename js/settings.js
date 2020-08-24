@@ -9,6 +9,39 @@ $(document).ready(() => {
   let timeHours = newDate.getHours();
   let timeMinute = newDate.getMinutes();
 
+  let dataText = $(".last-login-info");
+
+  if (localStorage.getItem("lastLoginDate") !== null) {
+    let lastLoginMonth = JSON.parse(localStorage.getItem("lastLoginDate"))[
+      "Month"
+    ];
+    let lastLoginDay = JSON.parse(localStorage.getItem("lastLoginDate"))["Day"];
+    let lastLoginYear = JSON.parse(localStorage.getItem("lastLoginDate"))[
+      "Year"
+    ];
+
+    let lastLoginHour = JSON.parse(localStorage.getItem("lastLoginDate"))[
+      "TimeHours"
+    ];
+    let lastLoginMinute = JSON.parse(localStorage.getItem("lastLoginDate"))[
+      "TimeMinute"
+    ];
+
+    if (0 <= lastLoginMinute && lastLoginMinute <= 10) {
+      lastLoginMinute = `0${lastLoginMinute}`;
+    }
+
+    if (0 <= lastLoginHour && lastLoginHour <= 10) {
+      lastLoginHour = `0${lastLoginHour}`;
+    }
+
+    dataText.text(
+      ` Son dəyişiklik: ${lastLoginDay} ${lastLoginMonth} ${lastLoginYear} ${lastLoginHour}:${lastLoginMinute}  `
+    );
+  } else {
+    dataText.text(`Profil bölməsinə ilk giriş`);
+  }
+
   switch (month) {
     case 1:
       month = "Yan";
@@ -48,43 +81,14 @@ $(document).ready(() => {
       break;
   }
 
-  let lastLoginObject = {
-    Month: month,
-    Day: day,
-    Year: year,
-    TimeHours: timeHours,
-    TimeMinute: timeMinute,
-    FirstTime: false,
-  };
+  let getImg = localStorage.getItem("userImage");
+  let imgDiv = $(".img-div");
 
-  // Getting Last Login Date codes end
-
-  let dataText = $(".last-login-info");
-
-  let lastLoginMonth = JSON.parse(localStorage.getItem("lastLoginDate"))[
-    "Month"
-  ];
-  let lastLoginDay = JSON.parse(localStorage.getItem("lastLoginDate"))["Day"];
-  let lastLoginYear = JSON.parse(localStorage.getItem("lastLoginDate"))["Year"];
-
-  let lastLoginHour = JSON.parse(localStorage.getItem("lastLoginDate"))[
-    "TimeHours"
-  ];
-  let lastLoginMinute = JSON.parse(localStorage.getItem("lastLoginDate"))[
-    "TimeMinute"
-  ];
-
-  if (0 <= lastLoginMinute && lastLoginMinute <= 10) {
-    lastLoginMinute = `0${lastLoginMinute}`;
+  if (getImg) {
+    $(`<img class="user-img" src="${getImg}" />`).appendTo($(imgDiv));
+  } else {
+    $(`<img class="user-img" src="images/user.png" />`).appendTo($(imgDiv));
   }
-
-  if (0 <= lastLoginHour && lastLoginHour <= 10) {
-    lastLoginHour = `0${lastLoginHour}`;
-  }
-
-  dataText.text(
-    ` Son giriş: ${lastLoginDay} ${lastLoginMonth} ${lastLoginYear} ${lastLoginHour}:${lastLoginMinute}  `
-  );
 
   let buttonSave = $(".save-btn");
 
@@ -93,12 +97,26 @@ $(document).ready(() => {
     let userNumber = $("#userNumber").val();
     let userEmail = $("#userEmail").val();
 
-    localStorage.setItem("userName", userNameVal);
-    localStorage.setItem("userNumber", userNumber);
-    localStorage.setItem("userEmail", userEmail);
+    if (userNameVal) {
+      localStorage.setItem("userName", userNameVal);
+    }
+    if (userNumber) {
+      localStorage.setItem("userNumber", userNumber);
+    }
+    if (userEmail) {
+      localStorage.setItem("userEmail", userEmail);
+    }
+
+    let lastLoginObject = {
+      Month: month,
+      Day: day,
+      Year: year,
+      TimeHours: timeHours,
+      TimeMinute: timeMinute,
+    };
+
+    // Getting Last Login Date codes end
 
     localStorage.setItem("lastLoginDate", JSON.stringify(lastLoginObject));
-
-    console.log(userNameVal, userNumber, userEmail);
   });
 });

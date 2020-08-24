@@ -25,11 +25,11 @@
             class="col-md-2 order-2 profile-div"
             style="height: 100vh; background-color: #f7f8fc;"
           >
-            <img src="images/user.png" />
-            <span class="user-name-info">Name Surname </span>
-            <span class="user-mail-info"> </span>
+            <span class="user-name-info"></span>
+            <span class="user-mail-info"></span>
+            <span class="user-number-info">Number</span>
             <a
-              href="/profile-settings-page.html"
+              href="https://ughurguliyev.github.io/to-do-App/profile-settings-page.html"
               class="btn btn-primary user-setting"
             >
               <i class="fas fa-user-cog"></i>
@@ -41,10 +41,18 @@
 
               <input
                 type="text"
-                class="form-control"
+                class="form-control task-input"
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
                 placeholder="Enter the task"
+                onfocus="this.value=''"
+              />
+              <input
+                type="text"
+                class="form-control tag-input"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                placeholder="Tag"
                 onfocus="this.value=''"
               />
               <button class="btn btn-primary add-task-btn">+</button>
