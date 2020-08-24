@@ -34,11 +34,17 @@
     margin-top: 2rem;
     height: 60vh !important;
   }
-  .profile-div .btn {
-    margin-top: 17rem;
+
+  .profile-div-button {
+    margin-top: 15rem;
   }
+
   .useful-info-cls {
     text-align: center;
+  }
+  .type-of-button {
+    right: 3rem;
+    bottom: 0;
   }
 }
 
@@ -95,6 +101,7 @@
 .type-of-button {
   position: absolute;
   border-radius: 15px;
+  right: 5rem;
   border: 0;
   font-family: "Poppins", sans-serif;
   background-color: #ece7fe;
@@ -126,6 +133,24 @@
 .done-btn:hover {
   background-color: #e1faf4;
   color: #8fd8c7;
+  -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+}
+
+.remove-btn {
+  margin-left: 1rem;
+  border-radius: 15px;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ff8892;
+  color: #af0d1a;
+  font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+  background-color: #ff8892;
+  color: #af0d1a;
   -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
   box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
@@ -320,9 +345,23 @@
 }
 
 .profile-div .btn {
-  top: 0;
-  margin-top: 18rem;
-  position: absolute;
+  margin: 0.5rem;
+}
+
+.profile-div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50px;
+  background-color: #623ce7;
+  border: 0;
+  color: #fff;
+}
+
+.profile-div .done-items-btn {
   width: 45px;
   height: 45px;
   border-radius: 50px;
@@ -330,27 +369,33 @@
   border: 0;
 }
 
-.profile-div a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+.profile-div .done-items-btn:focus {
+  box-shadow: none;
+}
+
+.profile-div .done-items-btn:active {
+  background-color: #623ce7 !important;
 }
 
 .profile-div a:hover {
   color: #fff;
+  background-color: #623ce7;
+}
+
+.profile-div-button {
+  display: flex;
 }
 
 #main-div i {
   color: white;
 }
 
-.profile-div .btn:focus {
+.profile-div a:focus {
   border: 0;
   box-shadow: none;
 }
 
-.profile-div .btn:active {
+.profile-div a:active {
   box-shadow: none;
   border: 0;
   background-color: #512cd4;

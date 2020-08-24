@@ -43,11 +43,157 @@ function getAdvice(data) {
 
 $(document).ready(() => {
   let storedObj = localStorage.getItem("todos");
+  let storedRemovedObj = localStorage.getItem("doneItems");
   let addBtn = $(".add-task-btn");
   let mainDiv = $(".main-div");
   let weatherDiv = $(".weather-div");
 
+  function showDoneItems() {
+    $(".task-line-div").remove();
+
+    // let storedTagArr = JSON.parse(storedRemovedObj)["toDo"];
+    // let storedToDoArr = JSON.parse(storedRemovedObj)["tag"];
+
+    if (storedRemovedObj) {
+      const newObj = JSON.parse(storedRemovedObj);
+
+      for (let i = 0; i < newObj["toDo"].length; i++) {
+        let todo = `
+        <div class="row task-line-div">
+          <div class="col-md-8 name-of-task">
+            <span style="margin-left: 1.5rem;">${i + 1}.  ${
+          newObj["toDo"][i]
+        }</span>
+          </div>
+          <div class="col-md-4 button">
+            <button id=${
+              newObj["tag"][i]
+            } class="btn btn-primary type-of-button">
+              ${newObj["tag"][i]}
+            </button>
+          </div>
+        </div>`;
+
+        $(todo).appendTo(mainDiv);
+      }
+    }
+  }
+
+  $(".done-items-btn").on("click", () => {
+    showDoneItems();
+
+    $(".type-of-button").on("click", () => {
+      listByTagforDone();
+    });
+  });
+
+  function listByTag() {
+    let buttonName = $(event.currentTarget).attr("id");
+    let i = 0;
+
+    console.log(buttonName);
+
+    $(".task-line-div").remove();
+
+    let storedTagArr = JSON.parse(storedObj)["tags"];
+    let storedToDoArr = JSON.parse(storedObj)["datas"];
+
+    for (tags in storedTagArr) {
+      if (buttonName === storedTagArr[tags]) {
+        let tagList = `
+      <div class="row task-line-div">
+      <button class="btn btn-primary done-btn">Done</button>
+          <button class="btn btn-primary remove-btn">Remove</button>
+      <div class="col-md-8 name-of-task">
+        <span style="margin-left: 1rem;"
+          >${storedToDoArr[i]}</span
+        >
+      </div>
+      <div class="col-md-4 button">
+        <button class="btn btn-primary type-of-button" style="left: 230%; position: absolute; bottom: 0.2rem;">${storedTagArr[tags]}</button>
+      </div>
+    </div>
+      `;
+
+        $(tagList).appendTo(mainDiv);
+      }
+      i++;
+    }
+  }
+
+  function listByTagforDone() {
+    let buttonName = $(event.currentTarget).attr("id");
+    let i = 0;
+
+    console.log(buttonName);
+
+    $(".task-line-div").remove();
+
+    let storedTagArr = JSON.parse(storedRemovedObj)["tag"];
+    let storedToDoArr = JSON.parse(storedRemovedObj)["toDo"];
+
+    for (tags in storedTagArr) {
+      if (buttonName === storedTagArr[tags]) {
+        let tagList = `
+      <div class="row task-line-div">
+      <div class="col-md-8 name-of-task">
+        <span style="margin-left: 1rem;"
+          >${storedToDoArr[i]}</span
+        >
+      </div>
+      <div class="col-md-4 button">
+        <button class="btn btn-primary type-of-button" style="float: right; right: 4rem">${storedTagArr[tags]}</button>
+      </div>
+  </div>
+      `;
+
+        $(tagList).appendTo(mainDiv);
+      }
+      i++;
+    }
+  }
+
   function done() {
+    let localArr = [];
+    let tagsLocalArr = [];
+    let storedObj = JSON.parse(localStorage.getItem("todos"));
+
+    let removedObj = {
+      toDo: [],
+      tag: [],
+    };
+
+    let i = 0;
+
+    const taskData = $(event.currentTarget).parent().find("span").text();
+
+    for (let task in storedObj["datas"]) {
+      if (taskData !== storedObj["datas"][task]) {
+        localArr.push(storedObj["datas"][task]);
+        tagsLocalArr.push(storedObj["tags"][i]);
+        i++;
+      } else {
+        if (storedRemovedObj) {
+          let newObj = JSON.parse(localStorage.getItem("doneItems"));
+          newObj["toDo"].push(storedObj["datas"][task]);
+          newObj["tag"].push(storedObj["tags"][i]);
+          localStorage.setItem("doneItems", JSON.stringify(newObj));
+        } else {
+          removedObj["toDo"].push(storedObj["datas"][task]);
+          removedObj["tag"].push(storedObj["tags"][i]);
+          localStorage.setItem("doneItems", JSON.stringify(removedObj));
+        }
+        i++;
+      }
+    }
+
+    storedObj["datas"] = localArr;
+    storedObj["tags"] = tagsLocalArr;
+
+    localStorage.setItem("todos", JSON.stringify(storedObj));
+  }
+
+  function remove() {
     let localArr = [];
     let tagsLocalArr = [];
     let storedObj = JSON.parse(localStorage.getItem("todos"));
@@ -92,16 +238,18 @@ $(document).ready(() => {
     for (let i = 0; i < newObj["datas"].length; i++) {
       let todo = `
       <div class="row task-line-div">
-      <div class="col-md-8 name-of-task">
-        <button class="btn btn-primary done-btn">Done</button>
-        <span style="margin-left: 0.9rem;"
-          >${newObj["datas"][i]}</span
-        >
-      </div>
-      <div class="col-md-4 tag-button-div">
-        <button  class="btn btn-primary type-of-button">${newObj["tags"][i]}</button>
-      </div>
-    </div>`;
+        <div class="col-md-8 name-of-task">
+          <button class="btn btn-primary done-btn">Done</button>
+          <button class="btn btn-primary remove-btn">Remove</button>
+          <span style="margin-left: 1.5rem;">${newObj["datas"][i]}</span>
+        </div>
+        <div class="col-md-4 button">
+          <button id=${newObj["tags"][i]} class="btn btn-primary type-of-button">
+            ${newObj["tags"][i]}
+          </button>
+        </div>
+      </div>`;
+
       $(todo).appendTo(mainDiv);
     }
   }
@@ -226,6 +374,7 @@ $(document).ready(() => {
       datas: [],
       tags: [],
     };
+
     if (storedObj) {
       const newObj = JSON.parse(storedObj);
       newObj["datas"].push(value);
@@ -240,12 +389,13 @@ $(document).ready(() => {
     let todo = `<div class="row task-line-div">
     <div class="col-md-8 name-of-task">
       <button class="btn btn-primary done-btn">Done</button>
-      <span style="margin-left: 0.9rem;"
-        >${value}</span
-      >
+      <button class="btn btn-primary remove-btn">Remove</button>
+      <span style="margin-left: 1.5rem;">${value}</span>
     </div>
     <div class="col-md-4 button">
-      <button  class="btn btn-primary type-of-button">${tagInput}</button>
+      <button id = ${tagInput} class="btn btn-primary type-of-button">
+        ${tagInput}
+      </button>
     </div>
   </div>`;
 
@@ -256,39 +406,21 @@ $(document).ready(() => {
   });
 
   $(".type-of-button").on("click", () => {
-    let buttonName = $(event.currentTarget).text();
-    let i = 0;
+    listByTag();
 
-    $(".task-line-div").remove();
-
-    console.log(buttonName);
-
-    let storedTagArr = JSON.parse(storedObj)["tags"];
-    let storedToDoArr = JSON.parse(storedObj)["datas"];
-
-    for (tags in storedTagArr) {
-      if (buttonName === storedTagArr[tags]) {
-        let tagList = `
-      <div class="row task-line-div">
-      <div class="col-md-8 name-of-task">
-        <button class="btn btn-primary done-btn">Done</button>
-        <span style="margin-left: 0.9rem;"
-          >${storedToDoArr[i]}</span
-        >
-      </div>
-      <div class="col-md-4 button">
-        <button class="btn btn-primary type-of-button" style="float: right; right: 4rem">${storedTagArr[tags]}</button>
-      </div>
-  </div>
-      `;
-        $(tagList).appendTo(mainDiv);
-      }
-      i++;
-    }
     $(".done-btn").on("click", () => {
       done();
       doneAnimation();
     });
+    $(".remove-btn").on("click", () => {
+      remove();
+      location.reload();
+    });
+  });
+
+  $(".remove-btn").on("click", () => {
+    remove();
+    location.reload();
   });
 
   $(".done-btn").on("click", () => {
