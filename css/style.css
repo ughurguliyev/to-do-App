@@ -28,23 +28,54 @@
   }
   .add-task-btn {
     position: absolute !important;
-    right: 0 !important;
+    right: 3.4rem !important;
+    margin-top: 0.7rem;
   }
   .profile-div {
     margin-top: 2rem;
-    height: 60vh !important;
+    height: 70vh;
   }
 
   .profile-div-button {
-    margin-top: 15rem;
+    margin-top: 3rem;
   }
 
   .useful-info-cls {
     text-align: center;
   }
   .type-of-button {
-    right: 3rem;
-    bottom: 0;
+    left: 8rem;
+    top: 1rem;
+  }
+  #importanceSelection {
+    width: 147px !important;
+    margin-right: 2rem;
+    margin-top: 0.8rem;
+  }
+  #main-section .tag-input {
+    margin-left: 10rem !important;
+  }
+
+  .importance-info-class {
+    margin-top: 23rem !important;
+  }
+
+  .importance-button {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .name-of-task {
+    margin-top: 2rem;
+  }
+
+  .name {
+    margin-left: 0.5rem;
+  }
+
+  .weather-div,
+  .container {
+    width: 75% !important;
   }
 }
 
@@ -121,6 +152,29 @@
   color: #8f74e3;
 }
 
+.importance-button {
+  position: absolute;
+  border-radius: 15px;
+  right: 5rem;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ece7fe;
+  color: #927bf0;
+  font-size: 0.8rem;
+}
+
+.importance-button:hover {
+  border: 0;
+  background-color: #ece7fe;
+  color: #8f74e3;
+}
+
+.importance-button:focus {
+  box-shadow: none;
+  background-color: #ece7fe;
+  color: #8f74e3;
+}
+
 .done-btn {
   border-radius: 15px;
   border: 0;
@@ -156,6 +210,23 @@
   box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
 }
 
+.edit-btn {
+  display: none;
+  margin-left: 1.5rem;
+  border-radius: 15px;
+  border: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #623ce7;
+  font-size: 0.8rem;
+}
+
+.edit-btn:hover {
+  background-color: #623ce7;
+  -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+}
+
 .form-check {
   display: flex;
   justify-content: center;
@@ -163,10 +234,10 @@
 }
 
 #main-section .form-control {
-  width: 200px;
+  width: 150px;
   border-radius: 15px;
   margin-left: auto;
-  margin-right: 1.5rem;
+  margin-right: 0.5rem;
   border: 1px solid #623ce7;
 }
 
@@ -176,11 +247,12 @@
 }
 
 #main-section .tag-input {
-  width: 90px;
+  width: 110px;
+  margin-left: 10rem;
 }
 
 #main-section .task-input {
-  margin-right: -1.5rem;
+  margin-right: -8.5rem;
 }
 
 ::placeholder {
@@ -188,7 +260,7 @@
 }
 
 .add-task-btn {
-  margin-right: 2.5rem;
+  margin-right: 0.5rem;
   min-height: 45px;
   min-width: 45px;
 
@@ -401,6 +473,78 @@
   background-color: #512cd4;
 }
 
+.importance-info-class {
+  margin-top: 20rem;
+  position: absolute;
+}
+
+.importance-info-class .btn {
+  border-radius: 25px;
+  font-family: "Poppins", sans-serif;
+  background-color: #ece7fe;
+  color: #927bf0;
+  font-size: 0.75rem;
+}
+
+.importance-info-class .number-btn {
+  border-radius: 50%;
+}
+
+.importance-info-class #all {
+  margin-left: 2.3rem;
+  width: 70px;
+}
+
+.importance-info-class .important {
+  margin-left: 1.8rem;
+  width: 90px;
+}
+
+.importance-info-class .semi-important {
+  font-size: 0.7rem;
+  margin-left: 0.73rem;
+  width: 130px;
+}
+
+.importance-info-class .not-important {
+  margin-left: 1.2rem;
+  width: 120px;
+}
+
+.percentage-btn {
+  margin-left: 1.2rem;
+
+  border: 0;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #e7ab3c;
+}
+
+.percentage-btn:hover {
+  background-color: #e7ab3c;
+  -webkit-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+  box-shadow: 7px 2px 27px -12px rgba(0, 0, 0, 0.43);
+}
+
+.percentage-btn:focus {
+  color: #fff;
+  background-color: #e7ab3c;
+  box-shadow: none;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* Done Checkmark Animation Design starts */
 
 .checkmark__circle {
@@ -468,4 +612,48 @@
 
 /* Done Checkmark Animation Design ends */
 
-/* Profile Setting Style codes start */
+.edit-section .container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  max-width: 350px;
+  max-height: 410px;
+
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 2.5rem 2rem;
+}
+
+.edit-section #slider {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+
+.edit-section .save-btn {
+  margin-top: 2rem;
+  margin-left: 4rem;
+  border-radius: 20px;
+  border: 0;
+  width: 150px;
+  height: 43px;
+  background-color: #e17055;
+}
+
+.edit-section .form-control {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px rgb(189, 189, 189) solid;
+  border-radius: 0;
+  font-size: 1rem;
+}
+
+.edit-section .form-control:focus {
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px rgb(95, 94, 94) solid;
+  border-radius: 0;
+}
